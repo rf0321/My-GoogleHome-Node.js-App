@@ -1,0 +1,14 @@
+{
+  "name": "google",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "main.js",
+  "scripts": {
+    "test": "npm run googlehome"
+  },
+  "author": "ItinoseSan",
+  "license": "MIT",
+  "dependencies": {
+    "node-googlehome": "0.0.1"
+  }
+}
