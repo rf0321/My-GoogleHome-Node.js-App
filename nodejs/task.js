@@ -3,10 +3,33 @@ const morningMessage = 'おはようございます。今日も一日、圧倒�
 const nightMessage = '夜も遅くなってきましたね。睡眠をおすすめします。'
 const celebrateMessage = '今日も12時間の生存おめでとうございます。種の保存のため、残り12時間も生きましょう。'
 
-
-googlehome.device('your device name'); 
-googlehome.ip('xxxxx');
+googlehome.device('Google-Home-aea44c0f02eda5797f0449c7a900fd5b'); 
+googlehome.ip('192.168.25.52');
 googlehome.language('ja');
+
+const  twitter = require('twitter');
+const ck ='xxxxxxx';
+const cks = 'xxxxxxxx';
+const ac = 'xxxxxxxx';
+const ats = 'xxxxxxxx';
+
+
+//  Authentication for Token when init Twitter npm lib
+const client = new twitter({
+    consumer_key: ck,
+    consumer_secret: cks,
+    access_token_key: ac,
+    access_token_secret: ats
+});
+
+// Use API for search tweet which include My Account ID
+client.stream( 'statuses/filter', { track : '@ItinoseVM' }, function( stream ) {
+    stream.on( 'data', function( data ) {
+        var text = data.text; //  Tweet text
+        var textCleaned = 'ツイッターから'+text.replace( /@ItinoseVM /g, "" )+'というリプライが届いています'; // Not need screenname
+        googlehomeMessage(textCleaned);
+    });
+});
 
 var schedule = require("node-schedule");
 
