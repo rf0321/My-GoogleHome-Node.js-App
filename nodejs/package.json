@@ -2,7 +2,7 @@
   "name": "google",
   "version": "1.0.0",
   "description": "none",
-  "main": "main.js",
+  "main": "test.js",
   "scripts": {
     "test": "npm run googlehome"
   },
