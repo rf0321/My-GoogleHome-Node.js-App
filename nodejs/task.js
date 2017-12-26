@@ -3,8 +3,8 @@ const morningMessage = 'おはようございます。今日も一日、圧倒�
 const nightMessage = '夜も遅くなってきましたね。睡眠をおすすめします。'
 const celebrateMessage = '今日も12時間の生存おめでとうございます。種の保存のため、残り12時間も生きましょう。'
 
-googlehome.device('Google-Home-aea44c0f02eda5797f0449c7a900fd5b'); 
-googlehome.ip('192.168.25.52');
+googlehome.device('Your Device Name'); 
+googlehome.ip('Your ip address');
 googlehome.language('ja');
 
 const  twitter = require('twitter');
@@ -23,10 +23,10 @@ const client = new twitter({
 });
 
 // Use API for search tweet which include My Account ID
-client.stream( 'statuses/filter', { track : '@ItinoseVM' }, function( stream ) {
+client.stream( 'statuses/filter', { track : 'your twitter @ id' }, function( stream ) {
     stream.on( 'data', function( data ) {
         var text = data.text; //  Tweet text
-        var textCleaned = 'ツイッターから'+text.replace( /@ItinoseVM /g, "" )+'というリプライが届いています'; // Not need screenname
+        var textCleaned = 'ツイッターから'+text.replace( /your twitter @ id /g, "" )+'というリプライが届いています'; // Not need screenname
         googlehomeMessage(textCleaned);
     });
 });
